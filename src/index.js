@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import './style.css';
 import Proper from './proper.gif';
+import Data from './data.xml';
+
 
 function component() {
 	const element = document.createElement('div');
@@ -13,6 +15,8 @@ function component() {
 
 	element.appendChild(myGif);
 
+	console.log(Data)
+	
 	return element;
 }
 
