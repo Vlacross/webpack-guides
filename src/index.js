@@ -2,24 +2,25 @@
 import printMe from './print';
 
 
-function getComponent() {
-	
+async function getComponent() {
 
-	return import(/* webpackChunkName: "lodash" */ 'lodash').then(({ default: _ }) => {
-		const element = document.createElement('div');
-		const btn = document.createElement('button');
-	
-		element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-	
-		btn.innerHTML = 'Click me and check the console!'
-		btn.onclick = printMe
-	
-		element.appendChild(btn)
+	// return import(/* webpackChunkName: "lodash" */ 'lodash').then(({ default: _ }) => {
+	// })
+	// .catch(error => 'An error occured while loading the component');
+	const element = document.createElement('div');
+	const btn = document.createElement('button');
 
-		return element;
+	const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash');
 
-	})
-	.catch(error => 'An error occured while loading the component');
+	element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+	btn.innerHTML = 'Click me and check the console!'
+	btn.onclick = printMe
+
+	element.appendChild(btn)
+
+	return element;
+
 }
 
 getComponent()
