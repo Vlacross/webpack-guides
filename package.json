@@ -16,7 +16,7 @@
   "dependencies": {
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "style-loader": "^1.2.1",
     "webpack-hot-middleware": "^2.25.0"
   },
